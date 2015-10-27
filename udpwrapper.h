@@ -25,7 +25,7 @@ public:
 
     void main();
 
-    void sendOnce(const NodeInfo &mReceiver, const std::string &message);
+    void sendOnce(const NodeInfo &receiver, const std::string &message);
     std::string receiveOnce();
 };
 

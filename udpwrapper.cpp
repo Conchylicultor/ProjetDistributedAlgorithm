@@ -79,24 +79,24 @@ void UdpWrapper::main()
     }
 }
 
-void UdpWrapper::sendOnce(const NodeInfo &mReceiver, const std::string &message)
+void UdpWrapper::sendOnce(const NodeInfo &receiver, const std::string &message)
 {
-    struct sockaddr_in mDstAddr;
+    struct sockaddr_in dstAddr;
 
-    memset(&mDstAddr, 0, sizeof(mDstAddr));
-    mDstAddr.sin_family = AF_INET;
-    mDstAddr.sin_addr.s_addr = inet_addr(mReceiver.getAddress().c_str());
-    mDstAddr.sin_port = htons(mReceiver.getPort());
+    memset(&dstAddr, 0, sizeof(dstAddr));
+    dstAddr.sin_family = AF_INET;
+    dstAddr.sin_addr.s_addr = inet_addr(receiver.getAddress().c_str());
+    dstAddr.sin_port = htons(receiver.getPort());
 
     cout << "Sending packet : " << message << endl;
 
     if (sendto(mSocket,
                message.c_str(), message.size()+1, // +1 for the null character
                0,
-               (struct sockaddr *)&mDstAddr, sizeof(mDstAddr))
+               (struct sockaddr *)&dstAddr, sizeof(dstAddr))
             < 0)
     {
-        cout << "Error: sending to " << mReceiver.toString() << endl;
+        cout << "Error: sending to " << receiver.toString() << endl;
     }
 }
 
