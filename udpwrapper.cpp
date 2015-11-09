@@ -117,9 +117,7 @@ std::string UdpWrapper::receiveOnce()
             cout << "Error receving data" << endl;
             exit(-1);
         }
-        cout << "Data: "<< buffer << endl;
-        cout << "Received from " << inet_ntoa(emitterAdress.sin_addr) << ":" << ntohs(emitterAdress.sin_port);
-        cout << endl;
+        cout << "Received from " << inet_ntoa(emitterAdress.sin_addr) << "(" << ntohs(emitterAdress.sin_port) << "): " << buffer << endl;
         cout << endl;
     }
     return "";
