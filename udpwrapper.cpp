@@ -25,7 +25,7 @@ UdpWrapper::UdpWrapper(const NodeInfo &mSender) : dataReceived(false)
 
     struct sockaddr_in mSrcAddr;
 
-    // Setting the src adress and port
+    // Setting the src address and port
 
     memset(&mSrcAddr, 0, sizeof(mSrcAddr));
     mSrcAddr.sin_family = AF_INET;
@@ -63,7 +63,7 @@ void UdpWrapper::main()
     if(select(mSocket+1, &rset, NULL, NULL, &tv) < 0)
     {
         if (errno == EINTR)
-            cout << "What's happend here ?" << endl;
+            cout << "What's happened here ?" << endl;
         else
             cout << "Error: Select" << endl;
     }
@@ -114,7 +114,7 @@ std::string UdpWrapper::receiveOnce()
                      buffer, MAX_SIZE_BUFFER, 0,
                      (struct sockaddr *) &emitterAdress, &emitterAdressLength) < 0)
         {
-            cout << "Error receving data" << endl;
+            cout << "Error receiving data" << endl;
             exit(-1);
         }
         cout << "Received from " << inet_ntoa(emitterAdress.sin_addr) << "(" << ntohs(emitterAdress.sin_port) << "): " << buffer << endl;
