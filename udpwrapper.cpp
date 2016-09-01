@@ -25,7 +25,7 @@ UdpWrapper::UdpWrapper(const NodeInfo &mSender) : dataReceived(false)
 
     struct sockaddr_in mSrcAddr;
 
-    // Setting the src adress and port
+    // Setting the src address and port
 
     memset(&mSrcAddr, 0, sizeof(mSrcAddr));
     mSrcAddr.sin_family = AF_INET;
