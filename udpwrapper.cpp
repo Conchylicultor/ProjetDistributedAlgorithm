@@ -114,7 +114,7 @@ std::string UdpWrapper::receiveOnce()
                      buffer, MAX_SIZE_BUFFER, 0,
                      (struct sockaddr *) &emitterAdress, &emitterAdressLength) < 0)
         {
-            cout << "Error receving data" << endl;
+            cout << "Error receiving data" << endl;
             exit(-1);
         }
         cout << "Received from " << inet_ntoa(emitterAdress.sin_addr) << "(" << ntohs(emitterAdress.sin_port) << "): " << buffer << endl;
