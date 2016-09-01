@@ -63,7 +63,7 @@ void UdpWrapper::main()
     if(select(mSocket+1, &rset, NULL, NULL, &tv) < 0)
     {
         if (errno == EINTR)
-            cout << "What's happend here ?" << endl;
+            cout << "What's happened here ?" << endl;
         else
             cout << "Error: Select" << endl;
     }
